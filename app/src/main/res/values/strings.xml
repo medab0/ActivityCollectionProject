@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Activity Collection Project</string>
+    String app_name = "MyProject list";
+    <string name="myName">Moriel Bien </string>
+    <string name="greeting">Hello people</string>
+    <string name="hitMe">Hit Me</string>
+    <string name="fakeInsta">FakeInstagram</string>
+    <string name="Like">Like</string>
+    <string name="Comment">Comment</string>
+    <string name="Share">Share</string>
+    <string name="Upload">Upload</string>
+    <string name="Notifications">Notification</string>
+    <string name="Messages">Message</string>
+    <string name="Back">Back</string>
+    <string name="Open">Open</string>
+    <string name="Exit">Exit</string>
+    <string name="Layout">Layout</string>
+    <string name="Button">Button</string>
+    <string name="Toast">Toast</string>
+    <string name="Hide">Hide</string>
+    <string name="Calculator">Calculator</string>
+    <string name="changeBackground">Change Background Color</string>
+    <string name="changeBackgroundButton">Change Background Button Color</string>
+</resources>
