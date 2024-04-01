@@ -117,28 +117,44 @@ public class CalculatorExercise extends AppCompatActivity {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String temp = displayText.getText().toString();
                 displayText.setText(displayText.getText() + "+");
+                if(Calculator.isOperator(temp.charAt(temp.length() - 1) + "")) {
+                    displayText.setText(temp.substring(0, temp.length() - 1));
+                }
                 update();
             }
         });
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String temp = displayText.getText().toString();
                 displayText.setText(displayText.getText() + "-");
+                if(Calculator.isOperator(temp.charAt(temp.length() - 1) + "")) {
+                    displayText.setText(temp.substring(0, temp.length() - 1));
+                }
                 update();
             }
         });
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String temp = displayText.getText().toString();
                 displayText.setText(displayText.getText() + "*");
+                if(Calculator.isOperator(temp.charAt(temp.length() - 1) + "")) {
+                    displayText.setText(temp.substring(0, temp.length() - 1));
+                }
                 update();
             }
         });
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String temp = displayText.getText().toString();
                 displayText.setText(displayText.getText() + "/");
+                if(Calculator.isOperator(temp.charAt(temp.length() - 1) + "")) {
+                    displayText.setText(temp.substring(0, temp.length() - 1));
+                }
                 update();
             }
         });
@@ -166,6 +182,6 @@ public class CalculatorExercise extends AppCompatActivity {
     }
     private void update() {
         Calculator calculator = new Calculator(displayText.getText().toString());
-        displayAnswer.setText(calculator.calculate());
+        displayAnswer.setText(calculator.sequential());
     }
 }

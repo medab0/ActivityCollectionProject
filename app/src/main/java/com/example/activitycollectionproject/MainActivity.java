@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //Toast.makeText(this, "Bien, Moriel Edgar Deandre", Toast.LENGTH_SHORT).show();
         btnLayout = (Button) findViewById(R.id.btnLayoutExercise);
         btnLayout.setOnClickListener(new View.OnClickListener() {
             @Override

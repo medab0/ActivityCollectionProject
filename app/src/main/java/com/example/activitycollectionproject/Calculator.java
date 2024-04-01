@@ -1,6 +1,9 @@
 package com.example.activitycollectionproject;
 
 
+import android.widget.Button;
+import android.widget.TextView;
+
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
@@ -167,9 +170,10 @@ public class Calculator {
         return stack2;
     }
 
-    private boolean isOperator(String str) {
+    public static boolean isOperator(String str) {
         return str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/");
     }
+
 
     // To check which operator is used
     private int precedence(String str) {

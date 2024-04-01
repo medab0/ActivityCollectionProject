@@ -60,14 +60,14 @@
         android:id="@+id/btnLayoutExercise"
         android:layout_width="310dp"
         android:layout_height="52dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="28dp"
         android:background="#914545"
         android:backgroundTint="#D8D8D8"
         android:text="@string/fakeInsta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/btnCalculator"
