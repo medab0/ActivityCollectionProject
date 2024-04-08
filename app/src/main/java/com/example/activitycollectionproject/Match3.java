@@ -80,15 +80,12 @@ public class Match3 extends AppCompatActivity {
     }
 
     private void swapColors(Button button1, Button button2) {
-        // Get the background color drawable of each button
         Drawable colorDrawable1 = button1.getBackground();
         Drawable colorDrawable2 = button2.getBackground();
 
-        // Get the color integer value of each drawable
         int color1 = ((ColorDrawable) colorDrawable1).getColor();
         int color2 = ((ColorDrawable) colorDrawable2).getColor();
 
-        // Set the background color of each button
         button1.setBackgroundColor(color2);
         button2.setBackgroundColor(color1);
     }
