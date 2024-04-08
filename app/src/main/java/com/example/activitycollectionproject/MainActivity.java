@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
         btnCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent layoutActivity = new Intent(MainActivity.this, CalculatorExercise.class);
-                startActivity(layoutActivity);
+                Intent calcu = new Intent(MainActivity.this, CalculatorExercise.class);
+                startActivity(calcu);
             }
         });
         btnMatch3 = (Button) findViewById(R.id.btnMatch3);
         btnMatch3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent buttonActivity = new Intent(MainActivity.this, activity_button_exercise.class);
-                startActivity(buttonActivity);
+                Intent match3 = new Intent(MainActivity.this, Match3.class);
+                startActivity(match3);
             }
         });
 
