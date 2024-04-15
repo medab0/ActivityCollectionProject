@@ -1,93 +1,147 @@
 package com.example.activitycollectionproject;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
-
 public class Match3 extends AppCompatActivity {
-
-    int[] COLOR = {Color.RED,Color.BLUE,Color.GREEN,Color.YELLOW,};
-
-    Button button[][] = new Button[5][5];
-
-    Random rand = new Random();
+    private final Button[][] buttons = new Button[5][5];
+    private int score = 0;
+    private Button firstClickedButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match3_exercise);
 
-        for(int row = 0; row < 5; row++){
-            for(int col = 0; col < 5; col++){
-                String res = "button" + row + col;
-                int resId = getResources().getIdentifier(res, "id", this.getPackageName());
-                button[row][col] = findViewById(resId);
-            }
-        }
-        randomize();
-
-
-
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++){
-                int finalI = i;
-                int finalJ = j;
-                button[i][j].setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        handleButtonClick(finalI, finalJ);
+        TableLayout tableLayout = findViewById(R.id.tableLayout);
+        for (int i = 0; i < 5; i++) {
+            TableRow row = (TableRow) tableLayout.getChildAt(i);
+            for (int j = 0; j < 5; j++) {
+                buttons[i][j] = (Button) row.getChildAt(j);
+                final int finalI = i;
+                final int finalJ = j;
+                buttons[i][j].setOnClickListener(v -> {
+                    if (firstClickedButton == null) {
+                        firstClickedButton = (Button) v;
+                    } else {
+                        swapTiles(buttons[finalI][finalJ], firstClickedButton);
+                        firstClickedButton = null;
+                        checkMatches();
+                        updateUI();
                     }
                 });
             }
         }
-
-        Button reset = (Button) findViewById(R.id.btnRestart);
-        reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                randomize();
-            }
+        Button restartButton = findViewById(R.id.btnRestart);
+        restartButton.setOnClickListener(v -> {
+            resetGame();
+            updateUI();
         });
+
+        resetGame();
+        updateUI();
     }
 
-    private void randomize(){
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++){
-                int temp = rand.nextInt(4);
-                button[i][j].setBackgroundColor(COLOR[temp]);
+    private void swapTiles(Button button1, Button button2) {
+        int row1 = -1, col1 = -1, row2 = -1, col2 = -1;
+
+        outerLoop:
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (buttons[i][j] == button1) {
+                    row1 = i;
+                    col1 = j;
+                }
+                if (buttons[i][j] == button2) {
+                    row2 = i;
+                    col2 = j;
+                }
+                if (row1 != -1 && col1 != -1 && row2 != -1 && col2 != -1) {
+                    break outerLoop;
+                }
+            }
+        }
+
+        if (Math.abs(row1 - row2) + Math.abs(col1 - col2) == 1) {
+            if (Math.abs(row1 - row2) == 1 && col1 == col2 || Math.abs(col1 - col2) == 1 && row1 == row2) {
+                int tempColor = getColorIndex(row1, col1);
+                setColorIndex(row1, col1, getColorIndex(row2, col2));
+                setColorIndex(row2, col2, tempColor);
             }
         }
     }
-    private Button selectedButton = null;
-    private void handleButtonClick(int row, int col) {
-        if (selectedButton == null) {
-            selectedButton = button[row][col];
-            return;
+
+    private void checkMatches() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (getColorIndex(i, j) == getColorIndex(i, j + 1) && getColorIndex(i, j) == getColorIndex(i, j + 2)) {
+                    setColorIndex(i, j, new Random().nextInt(4));
+                    setColorIndex(i, j + 1, new Random().nextInt(4));
+                    setColorIndex(i, j + 2, new Random().nextInt(4));
+                    score++;
+                }
+            }
         }
-        if(button[row - 1][col] == selectedButton || button[row + 1][col] == selectedButton ||
-                button[row][col + 1] == selectedButton || button[row][col - 1] == selectedButton){
-            swapColors(selectedButton, button[row][col]);
+
+        for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 3; i++) {
+                if (getColorIndex(i, j) == getColorIndex(i + 1, j) && getColorIndex(i, j) == getColorIndex(i + 2, j)) {
+                    setColorIndex(i, j, new Random().nextInt(4));
+                    setColorIndex(i + 1, j, new Random().nextInt(4));
+                    setColorIndex(i + 2, j, new Random().nextInt(4));
+                    score++;
+                }
+            }
         }
-        selectedButton = null;
     }
 
-    private void swapColors(Button button1, Button button2) {
-        Drawable colorDrawable1 = button1.getBackground();
-        Drawable colorDrawable2 = button2.getBackground();
-
-        int color1 = ((ColorDrawable) colorDrawable1).getColor();
-        int color2 = ((ColorDrawable) colorDrawable2).getColor();
-
-        button1.setBackgroundColor(color2);
-        button2.setBackgroundColor(color1);
+    private void resetGame() {
+        Random rand = new Random();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                setColorIndex(i, j, rand.nextInt(4));
+            }
+        }
+        score = 0;
     }
 
+    private void updateUI() {
+        TextView scoreTextView = findViewById(R.id.scoreTextView);
+        scoreTextView.setText("Score: " + score);
+    }
+
+
+    private int getColorIndex(int row, int col) {
+        Object tag = buttons[row][col].getTag();
+        return tag != null ? (int) tag : -1;
+    }
+
+    private void setColorIndex(int row, int col, int index) {
+        buttons[row][col].setBackgroundColor(getColorForIndex(index));
+        buttons[row][col].setTag(index);
+    }
+
+    private int getColorForIndex(int index) {
+        switch (index) {
+            case 0:
+                return Color.RED;
+            case 1:
+                return Color.GREEN;
+            case 2:
+                return Color.BLUE;
+            case 3:
+                return Color.YELLOW;
+            default:
+                return Color.WHITE;
+        }
+    }
 }
