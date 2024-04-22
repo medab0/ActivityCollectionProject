@@ -20,6 +20,7 @@
     <string name="Hide">Hide</string>
     <string name="Calculator">Calculator</string>
     <string name="changeBackground">Change Background Color</string>
+    <string name="changeBackgroundButton">Change Button Background Color</string>
     <string name="LayoutExercise">Layout Exercise</string>
     <string name="ButtonExercise">ButtonExercise</string>
     <string name="Midterms">Midterms</string>
