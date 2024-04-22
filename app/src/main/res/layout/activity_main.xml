@@ -6,104 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="334dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/f"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btnPassingIntent"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Passing Intents"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMatch3" />
+        <Button
+            android:id="@+id/btnPassingIntent"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="Passing Intents" />
 
-    <Button
-        android:id="@+id/btnButtonExercise"
-        android:layout_width="310dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:background="#431818"
-        android:backgroundTint="#F1E9E9"
-        android:text="@string/Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLayoutExercise" />
+        <Button
+            android:id="@+id/btnButtonExercise"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/Button" />
 
-    <Button
-        android:id="@+id/btnLayoutExercise"
-        android:layout_width="310dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="28dp"
-        android:background="#914545"
-        android:backgroundTint="#D8D8D8"
-        android:text="Layout Exercise"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        <Button
+            android:id="@+id/btnLayoutExercise"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:text="Layout Exercise" />
 
-    <Button
-        android:id="@+id/btnCalculator"
-        android:layout_width="310dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/Calculator"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnButtonExercise" />
+        <Button
+            android:id="@+id/btnCalculator"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/Calculator" />
 
-    <Button
-        android:id="@+id/btnMatch3"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Match3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMidterm" />
+        <Button
+            android:id="@+id/btnMatch3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Match3" />
 
-    <Button
-        android:id="@+id/btnMidterm"
-        android:layout_width="310dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:text="Midterm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalculator" />
+        <Button
+            android:id="@+id/btnMidterm"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:text="Midterm" />
 
-    <Button
-        android:id="@+id/btnFragments"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Fragments"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPassingIntent" />
+        <Button
+            android:id="@+id/btnFragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Fragments" />
 
-    <Button
-        android:id="@+id/btnMenu"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFragments" />
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Menu" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
