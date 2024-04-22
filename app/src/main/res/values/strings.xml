@@ -20,5 +20,11 @@
     <string name="Hide">Hide</string>
     <string name="Calculator">Calculator</string>
     <string name="changeBackground">Change Background Color</string>
-    <string name="changeBackgroundButton">Change Background Button Color</string>
+    <string name="LayoutExercise">Layout Exercise</string>
+    <string name="ButtonExercise">ButtonExercise</string>
+    <string name="Midterms">Midterms</string>
+    <string name="Match">Match 3</string>
+    <string name="PassingIntents">Passing Intents</string>
+    <string name="Fragements">Fragments</string>
+    <string name="Menus">Menus</string>
 </resources>
