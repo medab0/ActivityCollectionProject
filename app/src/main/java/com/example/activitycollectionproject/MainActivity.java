@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         btnPassingIntent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent buttonActivity = new Intent(MainActivity.this, activity_button_exercise.class);
+                Intent buttonActivity = new Intent(MainActivity.this, PassingIntentsExercise.class);
                 startActivity(buttonActivity);
             }
         });

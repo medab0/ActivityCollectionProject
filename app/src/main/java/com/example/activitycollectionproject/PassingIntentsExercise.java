@@ -63,18 +63,24 @@ public class PassingIntentsExercise extends AppCompatActivity {
                         gender = "Female";
                         break;
                     case 2:
-                        gender = "Other";
+                        gender = "Others";
                         break;
                     default:
                         Toast.makeText(PassingIntentsExercise.this, "Gender not selected", Toast.LENGTH_SHORT).show();
                         return;
                 }
-                for(int i = 0 ; i < editText.length; i++) {
-                    if(editText[i].getText().toString().length() == 0) {
-                        Toast.makeText(PassingIntentsExercise.this, "Please ensure all fields are filled out before proceeding", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+
+                /*
+                if(rdbtnMale.isSelected()) {
+                    gender = "Male";
+                } else if (rdbtnFemale.isSelected()){
+                    gender = "Female";
+                } else {
+                    gender = "Others";
                 }
+                */
+
+
                 int sStatus = rdgStatus.indexOfChild(findViewById(rdgStatus.getCheckedRadioButtonId()));
                 String status;
 
@@ -89,7 +95,7 @@ public class PassingIntentsExercise extends AppCompatActivity {
                         status = "Complicated";
                         break;
                     default:
-                        Toast.makeText(PassingIntentsExercise.this, "Complicated not selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PassingIntentsExercise.this, "Status not selected", Toast.LENGTH_SHORT).show();
                         return;
                 }
 
