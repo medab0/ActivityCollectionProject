@@ -29,8 +29,7 @@ public class PassingIntentsExercise2 extends AppCompatActivity {
 
 
 
-    public void initialize()
-    {
+    public void initialize() {
         tfFirstName = findViewById(R.id.tfFirstName);
         tfLastName = findViewById(R.id.tfLastName);
         tfGender = findViewById(R.id.tfGender);
@@ -43,29 +42,29 @@ public class PassingIntentsExercise2 extends AppCompatActivity {
         tfCourse = findViewById(R.id.tfCourse);
         tfAddress = findViewById(R.id.tfAddress);
         btnReturn = findViewById(R.id.btnReturn);
-        String firstname , lastname, gender, studentId, birthdate, phonenumber,
+        String firstName , lastName, gender, studentID, birthDate, phoneNumber,
                 email, ethnicity ,course,  address, status;
 
 
         Intent intent = getIntent();
-        firstname = intent.getStringExtra("firstname");
-        lastname = intent.getStringExtra("lastname");
+        firstName = intent.getStringExtra("firstName");
+        lastName = intent.getStringExtra("lastName");
         gender = intent.getStringExtra("gender");
         status = intent.getStringExtra("status");
-        studentId= intent.getStringExtra("studentid");
-        birthdate= intent.getStringExtra("birthdate");
-        phonenumber= intent.getStringExtra("phonenumber");
+        studentID= intent.getStringExtra("studentID");
+        birthDate= intent.getStringExtra("birthDate");
+        phoneNumber= intent.getStringExtra("phoneNumber");
         email= intent.getStringExtra("email");
         ethnicity = intent.getStringExtra("ethnicity");
         course = intent.getStringExtra("course");
         address = intent.getStringExtra("address");
 
-        tfFirstName.setText(firstname);
-        tfLastName.setText(lastname);
+        tfFirstName.setText(firstName);
+        tfLastName.setText(lastName);
         tfGender.setText(gender);
-        tfStudentID.setText(studentId);
-        tfBirthDate.setText(birthdate);
-        tfPhoneNumber.setText(phonenumber);
+        tfStudentID.setText(studentID);
+        tfBirthDate.setText(birthDate);
+        tfPhoneNumber.setText(phoneNumber);
         tfEmailAddress.setText(email);
         tfStatus.setText(status);
         tfCourse.setText(course);
