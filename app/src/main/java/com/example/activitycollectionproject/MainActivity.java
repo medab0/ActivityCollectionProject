@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLayout, btnButton, btnCalculator, btnMatch3, btnPassingIntent, btnFragments, btnMenu;
+    Button btnLayout, btnButton, btnCalculator, btnMatch3, btnPassingIntent, btnFragments, btnMenu, btnMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent buttonActivity = new Intent(MainActivity.this, MenuExercise.class);
+                startActivity(buttonActivity);
+            }
+        });
+        btnMaps = (Button) findViewById(R.id.btnMaps);
+        btnMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent buttonActivity = new Intent(MainActivity.this, MapsExercise.class);
                 startActivity(buttonActivity);
             }
         });
