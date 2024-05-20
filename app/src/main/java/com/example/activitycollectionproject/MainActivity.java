@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLayout, btnButton, btnCalculator, btnMatch3, btnPassingIntent, btnFragments, btnMenu, btnMaps;
+    Button btnLayout, btnButton, btnCalculator, btnMatch3, btnPassingIntent, btnFragments, btnMenu, btnMaps, btnMidterm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent calcu = new Intent(MainActivity.this, CalculatorExercise.class);
                 startActivity(calcu);
+            }
+        });
+
+        btnMidterm = (Button) findViewById(R.id.btnMidterm);
+        btnMidterm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent midterms = new Intent(MainActivity.this, Batch2.class);
+                startActivity(midterms);
+                Toast toast = Toast.makeText(MainActivity.this, "Moriel Edgar Deandre A. Bien, Match 3", Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
         btnMatch3 = (Button) findViewById(R.id.btnMatch3);
